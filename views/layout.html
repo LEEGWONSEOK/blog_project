@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </head>
+  <body>
+    <div>
+      {% if user and user.id %}
+        <div>{{ 'Hello, ' + user.nick }}</div>
+        <div>
+          <div>{{ '팔로잉 : ' + followingCount}}</div>
+          <div>{{ '팔로워 : ' + followerCount}}</div>  
+        </div>
+
+      {% else %}
+    </div>
+
+  </body>
+</html>
