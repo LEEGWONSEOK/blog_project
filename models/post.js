@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
 
 module.exports = class Post extends Sequelize.Model {
   static init(sequelize) {
@@ -42,6 +42,6 @@ module.exports = class Post extends Sequelize.Model {
     // Post vs Hashtag   >>   N:M
     db.Post.belongsToMany(db.Hashtag, {
       through: 'PostHashtag'    // 중간테이블명 : PostHashtag
-    })
+    });
   }
 }
