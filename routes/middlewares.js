@@ -16,8 +16,3 @@ exports.isNotLoggedIn = (req, res, next) => {
     res.redirect(`/?error=${message}`);
   }
 };
-
-// ※ 분리시키는 이유?
-// 로그인   상태 : 로그아웃 O, 로그인 X, 글쓰기 O 등
-// 로그아웃 상태 : 로그아웃 X, 로그인 O, 글쓰기 X 등
-// 서로 할수 있는 권한이 다르기 때문

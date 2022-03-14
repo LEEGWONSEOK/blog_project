@@ -10,7 +10,7 @@ module.exports = class Hashtag extends Sequelize.Model {
       }
     }, {
       sequelize,
-      timestamps: false,         
+      timestamps: true,         // create_at, update_at, delete_at 기록용
       underscored: false,
       modelName: 'Hashtag',
       tableName: 'hashtags',
@@ -21,9 +21,7 @@ module.exports = class Hashtag extends Sequelize.Model {
   }
 
   static associate(db) {
-    // Post vs Hashtag   >>   N:M
-    db.Hashtag.belongsToMany(db.Post, {
-      through: 'postHashtags'
-    })
+    // Post vs Comment   >>   1:N
+    db.Comment.belongsTo(db.Post)
   }
 }
