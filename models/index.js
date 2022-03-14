@@ -16,20 +16,16 @@ db.sequelize = sequelize;
 db.User = User;
 db.Post = Post;
 db.Hashtag = Hashtag;
+db.Comment = Comment;
 
 User.init(sequelize);
 Post.init(sequelize);
 Hashtag.init(sequelize);
+Comment.init(sequelize);
 
 User.associate(db);
 Post.associate(db);
 Hashtag.associate(db);
+Comment.associate(db);
 
 module.exports = db;
-
-
-// user : post        => 1:N 관계 (유저 포스트 관계)
-// post : hashtag     => N:M 관계 (포스트 해시태그 관계)
-// user'A' : user'B'  => N:M 관계 (팔로우 팔로워 관계)
-
-// category : post    => 1:N 관계 () ??
