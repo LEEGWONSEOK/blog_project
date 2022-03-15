@@ -3,26 +3,26 @@ const Sequelize = require('sequelize');
 module.exports = class Post extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      p_title: {          // 포스트 제목
+      title: {          
         type: Sequelize.STRING(40),
-        allowNull: false
+        allowNull: false,
+        comment: "포스트 제목",
       },
-      p_thumbnail: {      // 포스트 썸네일
+      thumbnail: {      
         type: Sequelize.STRING(200),
-        allowNull: false
+        allowNull: false,
+        comment: "포스트 썸네일",
       },
-      p_content: {        // 포스트 컨텐츠(글)
+      content: {        
         type: Sequelize.STRING(200),
-        allowNull: false
+        allowNull: false,
+        comment: "포스트 내용",
       },
-      p_category: {       // 포스트 카테고리
+      category: {       
         type: Sequelize.STRING(20),
-        allowNull: true
+        allowNull: true,
+        comment: "포스트 카테고리",
       },
-      p_comment: {        // 포스트 댓글
-        type: Sequelize.STRING(100),
-        allowNull: true
-      }
     }, {
       sequelize,
       timestamps: true,         // create_at, update_at, delete_at 기록용
@@ -43,7 +43,7 @@ module.exports = class Post extends Sequelize.Model {
     db.Post.belongsToMany(db.Hashtag, {
       through: 'postHashtags'    // 중간테이블명 : PostHashtag
     });
-
+         
     // Post vs Comment   >>   1:N
     db.Post.hasMany(db.Comment)
   }

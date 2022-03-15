@@ -7,8 +7,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const passport = require('passport');
-const swaggerUi = require('swagger-ui-express');
-const swaggerJsdoc = require('swagger-jsdoc');
 
 dotenv.config();
 
@@ -18,9 +16,9 @@ const userRouter = require('./routes/user');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
-const app = express()
-passportConfig()
-sequelize.sync({ force: false })      // force: true >> 테이블 다 지우고 다시 생성(데이터 다 날아감, 실무X) / alter: true >> 데이터 유지 가능
+const app = express();
+passportConfig();
+sequelize.sync({ force: true })      // force: true >> 테이블 다 지우고 다시 생성(데이터 다 날아감, 실무X) / alter: true >> 데이터 유지 가능
   .then(() => {
     console.log('DB connect!');
   })
@@ -30,11 +28,7 @@ sequelize.sync({ force: false })      // force: true >> 테이블 다 지우고 
 
 // App Setting
 app.set('port', process.env.PORT || 3000);
-app.set('view engine', 'html');
-nunjucks.configure('views', {
-  express: app,
-  watch: true,
-});
+
 
 // Router
 app.use(morgan('dev'));                                            // 'combined' : publish

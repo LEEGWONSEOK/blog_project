@@ -5,6 +5,7 @@ const config = require('../config/config.js')[env]     // 설정파일 불러오
 const User = require('./user')
 const Post = require('./post')
 const Hashtag = require('./hashtag')
+const Comment = require('./comment')
 
 
 const db = {}
