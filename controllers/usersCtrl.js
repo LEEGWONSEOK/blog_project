@@ -1,10 +1,17 @@
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const { User } = require('../models/user');
+const User = require('../models/user');
+
+// 회원가입 조회
+const getJoin = (req, res, next) => {
+  console.log('getjoin');
+  res.render("join");
+}
 
 // 회원가입 Ctrl
 const postJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 사용
-  const { email, nick, password } = req.body;                       // req.body에서 email, nick, password만 빼서 사용
+  const { email, nickname, password, githubUrl, introduce } = req.body;                       // req.body에서 email, nick, password만 빼서 사용
+  console.log(req.body);
   try {
     const exUser = await User.findOne({ where: { email } });        // 기존에 동일 email 가입자가 있는지
     if (exUser) {                                           
@@ -18,7 +25,7 @@ const postJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 �
       githubUrl,
       introduce,
     });
-    return res.redirect('/');    
+    return res.redirect('/users/login');    
   } catch (error) {
     console.error(error);
     return next(err);
@@ -29,6 +36,13 @@ const postJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 �
 // const deleteJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 사용
   
 // };
+
+// 로그인 조회
+const getLogin = (req, res, next) => {
+  res.render("login");
+  console.log('getLogin');
+}
+
 
 // 로그인 Ctrl
 const postLogin = (req, res, next) => {
@@ -55,17 +69,20 @@ const postLogin = (req, res, next) => {
 const deleteLogin = (req, res) => {
   req.logout();             // 서버에 세션쿠키 지움(로그인 풀림)
   req.session.destroy();    // 세션 자체 없애기
-  req.redirect('/');
+  //req.redirect('/users/login');
+  res.redirect('/users/login');
 };
 
 // 회원정보 조회
-const getUser
+// const getUser
 
-// 회원정보 변경
-const patchUser
+// // 회원정보 변경
+// const patchUser
 
 module.exports = {
+  getJoin,
   postJoin,
+  getLogin,
   postLogin,
   deleteLogin,
 }

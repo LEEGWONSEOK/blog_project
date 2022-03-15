@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<body>
+  <form action="/users/join" method="POST">
+    <table>
+      <tr>
+        <td><input type="text" name="email" placeholder="이메일을 입력하세요."></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="password" placeholder="비밀번호를 입력하세요."></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="nickname" placeholder="닉네임을 입력하세요."></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="githubUrl" placeholder="깃허브 주소를 입력하세요."></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="introduce" placeholder="자기소개를 입력하세요."></td>
+      </tr>
+    </table>
+    <input type="button" value="로그인" onClick="location.href='users/login'">
+    <input type="submit" value="회원가입">
+  </form>
+</body>
+</html>

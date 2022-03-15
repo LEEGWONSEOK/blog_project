@@ -16,14 +16,19 @@ module.exports = class User extends Sequelize.Model {
         type: Sequelize.STRING(100),        
         allowNull: true,                    
       },
+      githubUrl: {
+        type: Sequelize.STRING(200),
+        allowNull: true,
+      },
       introduce: {
         type: Sequelize.STRING(200),
         allowNull: true,
       },
-      profileImg: {                            
-        type: Sequelize.STRING(10),
-        allowNull: false,                   
-      },
+      
+      // profileImg: {                            
+      //   type: Sequelize.STRING(10),
+      //   allowNull: false,                   
+      // },
       // provider: {                           // provider, snsId : SNS로그인을 했을 경우 저장
       //   type: Sequelize.STRING(10),
       //   allowNull: false,

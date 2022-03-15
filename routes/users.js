@@ -3,7 +3,9 @@ const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const usersCtrl = require("../controllers/usersCtrl");
 const router = express.Router();
 
+
 // 회원가입 Router ( POST : /users/join )
+router.get('/join', isNotLoggedIn, usersCtrl.getJoin);
 router.post('/join', isNotLoggedIn, usersCtrl.postJoin);
 
 // // 회원탈퇴 Router ( POST : /users/join )
@@ -11,6 +13,7 @@ router.post('/join', isNotLoggedIn, usersCtrl.postJoin);
 
 
 // 로그인 ( POST : /users/login )
+router.get('/login', isNotLoggedIn, usersCtrl.getLogin);
 router.post('/login', isNotLoggedIn, usersCtrl.postLogin);
 
 // 로그아웃 ( DELETE : /users/login )

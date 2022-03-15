@@ -13,15 +13,15 @@ module.exports = class Post extends Sequelize.Model {
         allowNull: false,
         comment: "포스트 썸네일",
       },
-      content: {        
-        type: Sequelize.STRING(200),
-        allowNull: false,
-        comment: "포스트 내용",
-      },
       category: {       
         type: Sequelize.STRING(20),
         allowNull: true,
         comment: "포스트 카테고리",
+      },
+      content: {        
+        type: Sequelize.STRING(200),
+        allowNull: false,
+        comment: "포스트 내용",
       },
     }, {
       sequelize,

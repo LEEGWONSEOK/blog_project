@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+  <form action="/users/login" method="POST">
+    <table>
+      <tr>
+        <td><input type="text" name="email" placeholder="이메일을 입력하세요."></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="password" placeholder="비밀번호를 입력하세요."></td>
+      </tr>  
+    </table>
+    <input type="submit" value="로그인">
+    <input type="button" value="회원가입" onClick="location.href='/users/join'">
+  </form>
+</body>
+</html>
