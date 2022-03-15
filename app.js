@@ -11,8 +11,9 @@ const passport = require('passport');
 dotenv.config();
 
 const pageRouter = require('./routes/page');
-const authRouter = require('./routes/auth');
-const userRouter = require('./routes/user');
+//const authRouter = require('./routes/auth');
+const userRouter = require('./routes/users');
+const postRouter = require('./routes/posts');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -20,7 +21,7 @@ const app = express();
 passportConfig();
 sequelize.sync({ force: true })      // force: true >> 테이블 다 지우고 다시 생성(데이터 다 날아감, 실무X) / alter: true >> 데이터 유지 가능
   .then(() => {
-    console.log('DB connect!');
+    console.log('✅ DB connect!');
   })
   .catch((err) => {
     console.error(err);
@@ -50,8 +51,10 @@ app.use(passport.session());       // passport.session 미들웨어 : req.sessio
 
 // Page Router
 app.use('/', pageRouter);
-app.use('/auth', authRouter);
-app.use('/user', userRouter);
+//app.use('/auth', authRouter);
+
+app.use('/users', userRouter);
+app.use('/posts', postRouter);
 
 // 404 Middleware
 app.use((req, res, next) => {
@@ -66,5 +69,5 @@ app.use((err, req, res, next) => {
 
 // Load the App
 app.listen(app.get('port'), () => {
-  console.log('express server running');
+  console.log('✅ express server running');
 });
