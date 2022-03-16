@@ -20,24 +20,18 @@ const postPost = (req, res, next) => {
   const { title, thumbnail, category, content } = req.body; 
   console.log(req.body);
   console.log(req.user.id);
-  try {
-    Post.create({
-      title,
-      thumbnail,
-      category,
-      content,
-      UserId: req.user.id,
-    }).then( result => {
-      console.log("데이터 추가 완료");
-      res.json(result);
-    }).catch( err => {
-      console.log("데이터 추가 실패");
-    })
-    return res.redirect('/');   
-  } catch (error) {
-    console.error(error);
-    return next(err);
-  }
+  Post.create({
+    title,
+    thumbnail,
+    category,
+    content,
+    UserId: req.user.id,
+  }).then(result => {
+    console.log("데이터 추가 완료");
+    res.json(result);
+  }).catch( error => {
+      console.error(error);
+  });
 };
 
 module.exports = {
