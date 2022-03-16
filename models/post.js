@@ -25,7 +25,7 @@ module.exports = class Post extends Sequelize.Model {
       },
     }, {
       sequelize,
-      timestamps: true,         // create_at, update_at, delete_at 기록용
+      timestamps: true,         
       underscored: false,
       modelName: 'Post',
       tableName: 'posts',

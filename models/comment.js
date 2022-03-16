@@ -10,7 +10,7 @@ module.exports = class Hashtag extends Sequelize.Model {
       }
     }, {
       sequelize,
-      timestamps: true,         // create_at, update_at, delete_at 기록용
+      timestamps: true,         
       underscored: false,
       modelName: 'Comment',
       tableName: 'comments',

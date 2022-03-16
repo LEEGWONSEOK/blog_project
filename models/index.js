@@ -11,7 +11,7 @@ const Comment = require('./comment')
 const db = {}
 const sequelize = new Sequelize(
   config.database, config.username, config.password, config
-)   // 순서 중요!
+)
 
 db.sequelize = sequelize;
 db.User = User;

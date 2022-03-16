@@ -48,8 +48,8 @@ app.use(session({
     secure: false,
   },
 }));
-app.use(passport.initialize());    // passport.initialize 미들웨어 : req객체(요청)에 passport 설정 넣음
-app.use(passport.session());       // passport.session 미들웨어 : req.session객체에 passport 정보 저장
+app.use(passport.initialize());    
+app.use(passport.session());       
 
 // Page Router
 app.use('/', pageRouter);
