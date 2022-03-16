@@ -65,11 +65,10 @@ const postLogin = (req, res, next) => {
   })(req, res, next);      // middleware in middleware
 };
 
-// 로그아웃 Ctrl
+// 로그아웃 Ctrl (get -> post)
 const deleteLogin = (req, res) => {
   req.logout();             // 서버에 세션쿠키 지움(로그인 풀림)
   req.session.destroy();    // 세션 자체 없애기
-  //req.redirect('/users/login');
   res.redirect('/users/login');
 };
 

@@ -1,7 +1,6 @@
 // Package
 const express = require('express');
 const path = require('path');
-const nunjucks = require('nunjucks');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
