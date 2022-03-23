@@ -13,6 +13,8 @@ router.post('/', isLoggedIn, postsCtrl.postPost);
 // router.get('/board', function(req, res, next) {
 //   res.render('show');
 //   });
-  
+
 
 module.exports = router
+
+

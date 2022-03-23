@@ -14,7 +14,7 @@ const postJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 �
   console.log(req.body);
   try {
     const exUser = await User.findOne({ where: { email } });        // 기존에 동일 email 가입자가 있는지
-    if (exUser) {                                           
+    if (exUser) {
       return res.redirect('./join?error=exist');                    // 있다면 에러(주소뒤 쿼리스트링) 표시
     }
     const hash = await bcrypt.hash(password, 12);                   // 없다면 비밀번호 암호화
@@ -25,7 +25,7 @@ const postJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 �
       githubUrl,
       introduce,
     });
-    return res.redirect('/users/login');    
+    return res.redirect('/users/login');
   } catch (error) {
     console.error(error);
     return next(err);
@@ -34,8 +34,9 @@ const postJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 �
 
 // 회원탈퇴 Ctrl
 // const deleteJoin = async (req, res, next) => {     // 로그인 'X'인 경우만 사용
-  
+
 // };
+
 
 // 로그인 조회
 const getLogin = (req, res, next) => {

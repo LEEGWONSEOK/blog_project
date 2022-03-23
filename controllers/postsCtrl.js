@@ -14,7 +14,7 @@ const getPost = (req, res, next) => {
 
 // 포스트 생성
 const postPost = (req, res, next) => {
-  const { title, thumbnail, category, content } = req.body; 
+  const { title, thumbnail, category, content } = req.body;
   console.log(req.body);
   console.log(req.user.id);
   Post.create({
@@ -26,8 +26,8 @@ const postPost = (req, res, next) => {
   }).then(result => {
     console.log("데이터 추가 완료");
     res.json(result);
-  }).catch( error => {
-      console.error(error);
+  }).catch(error => {
+    console.error(error);
   });
 };
 
