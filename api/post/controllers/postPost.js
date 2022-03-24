@@ -1,3 +1,5 @@
+// postPost : 포스트 생성
+
 const Post = require('../../../models/post');
 
 const postPost = (req, res, next) => {
