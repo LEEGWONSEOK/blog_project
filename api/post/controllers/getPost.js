@@ -11,7 +11,7 @@ const getPost = (req, res, next) => {
     content,
     UserId: req.user.id,
   }).then(result => {
-    console.log("데이터 추가 완료");
+    console.log("✅ 데이터 추가 완료");
     res.json(result);
   }).catch(error => {
     console.error(error);
