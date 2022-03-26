@@ -17,4 +17,3 @@ router.post('/', isLoggedIn, postsCtrl.postPost);
 
 module.exports = router
 
-
