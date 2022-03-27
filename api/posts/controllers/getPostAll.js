@@ -4,8 +4,9 @@
 const Post = require('../../../models/post');
 
 const getPostAll = (req, res, next) => {
+  let userId = req.params.userId;
   Post.findAll({
-    where: { id: req.params.id }
+    where: { UserId: userId }
   }).then(result => {
     console.log("✅ 전체 포스트 조회 완료");
     res.json(result);

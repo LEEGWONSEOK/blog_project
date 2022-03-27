@@ -9,12 +9,16 @@ const passport = require('passport');
 
 dotenv.config();
 
-const pageRouter = require('./routes/page');
-//const authRouter = require('./routes/auth');
-const userRouter = require('./routes/users');
-const postRouter = require('./routes/posts');
-const { sequelize } = require('./models');
+const userRouter = require('./api/users');
+const postRouter = require('./api/posts');
+const sequelize = require('./models');
 const passportConfig = require('./passport');
+
+//const pageRouter = require('./routes/page');
+//const authRouter = require('./routes/auth');
+// const userRouter = require('./routes/users');
+// const postRouter = require('./routes/posts');
+//const { sequelize } = require('./models');
 
 const app = express();
 passportConfig();

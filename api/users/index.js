@@ -1,7 +1,8 @@
+// post 라우터
 // URI : /users
-const express = require('express');
-const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 
+const express = require('express');
+const { isLoggedIn, isNotLoggedIn } = require('../middlewares');
 const {
   postUser,
   deleteUser,
@@ -13,6 +14,7 @@ const {
 
 const router = express.Router();
 
+// User Router
 router.post('/join', isNotLoggedIn, postUser);    // 회원가입(로컬)
 router.delete('/join', isLoggedIn, deleteUser);   // 회원탈퇴(로컬)
 router.post('/login', isNotLoggedIn, login);      // 로그인(로컬)
