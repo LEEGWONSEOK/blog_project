@@ -4,7 +4,7 @@
 const Post = require('../../../models/post');
 
 const getPostAll = (req, res, next) => {
-  let userId = req.params.userId;
+  let userId = req.params.postId;
   Post.findAll({
     where: { UserId: userId }
   }).then(result => {

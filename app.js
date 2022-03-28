@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const passport = require('passport');
+const http = require('http');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -13,12 +15,6 @@ const userRouter = require('./api/users');
 const postRouter = require('./api/posts');
 const { sequelize } = require('./models');
 const passportConfig = require('./api/passport');
-
-//const pageRouter = require('./routes/page');
-//const authRouter = require('./routes/auth');
-// const userRouter = require('./routes/users');
-// const postRouter = require('./routes/posts');
-//const { sequelize } = require('./models');
 
 const app = express();
 passportConfig();
@@ -32,6 +28,11 @@ sequelize.sync({ force: false })      // force: true >> 테이블 다 지우고 
 
 // App Setting
 app.set('port', process.env.PORT || 3000);
+let corsOptions = {
+  origin: 'localhost:3000',
+  credential: true
+}
+app.use(cors(corsOptions));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
@@ -55,7 +56,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Page Router
-// app.use('/', pageRouter);
 app.use('/users', userRouter);
 app.use('/posts', postRouter);
 
@@ -72,5 +72,5 @@ app.use((err, req, res, next) => {
 
 // Load the App
 app.listen(app.get('port'), () => {
-  console.log('✅ express server running');
+  console.log(`✅ express server running on ${process.env.PORT}`);
 });
