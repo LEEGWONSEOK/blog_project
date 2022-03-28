@@ -2,4 +2,7 @@
 
 .env
 .env.test
-node_modules
+node_modules/
+passport/
+routes/
+controllers/

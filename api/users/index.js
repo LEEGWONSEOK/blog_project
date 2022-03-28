@@ -3,14 +3,14 @@
 
 const express = require('express');
 const { isLoggedIn, isNotLoggedIn } = require('../middlewares');
-const {
-  postUser,
-  deleteUser,
-  login,
-  logout,
-  getUser,
-  patchUser
-} = require('./controllers');
+
+// User Controller
+const postUser = require('./controllers/postUser');
+const deleteUser = require('./controllers/deleteUser');
+const login = require('./controllers/login');
+const logout = require('./controllers/logout');
+const getUser = require('./controllers/getUser');
+const patchUser = require('./controllers/patchUser');
 
 const router = express.Router();
 

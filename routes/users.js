@@ -1,23 +1,23 @@
-const express = require('express');
-const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
-const usersCtrl = require("../controllers/usersCtrl");
-const router = express.Router();
+// const express = require('express');
+// const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+// const usersCtrl = require("../controllers/usersCtrl");
+// const router = express.Router();
 
 
-// 회원가입 Router ( POST : /users/join )
-router.get('/join', isNotLoggedIn, usersCtrl.getJoin);
-router.post('/join', isNotLoggedIn, usersCtrl.postJoin);
+// // 회원가입 Router ( POST : /users/join )
+// router.get('/join', isNotLoggedIn, usersCtrl.getJoin);
+// router.post('/join', isNotLoggedIn, usersCtrl.postJoin);
 
-// // 회원탈퇴 Router ( POST : /users/join )
-// router.delete('/join', isLoggedIn, usersCtrl.deleteJoin);
+// // // 회원탈퇴 Router ( POST : /users/join )
+// // router.delete('/join', isLoggedIn, usersCtrl.deleteJoin);
 
 
-// 로그인 ( POST : /users/login )
-router.get('/login', isNotLoggedIn, usersCtrl.getLogin);
-router.post('/login', isNotLoggedIn, usersCtrl.postLogin);
+// // 로그인 ( POST : /users/login )
+// router.get('/login', isNotLoggedIn, usersCtrl.getLogin);
+// router.post('/login', isNotLoggedIn, usersCtrl.postLogin);
 
-// 로그아웃 ( DELETE : /users/login )
-router.get('/logout', isLoggedIn, usersCtrl.deleteLogin);
+// // 로그아웃 ( DELETE : /users/login )
+// router.get('/logout', isLoggedIn, usersCtrl.deleteLogin);
 
 
 // // Sign_in Router ( POST : /users/join )

@@ -11,8 +11,8 @@ dotenv.config();
 
 const userRouter = require('./api/users');
 const postRouter = require('./api/posts');
-const sequelize = require('./models');
-const passportConfig = require('./passport');
+const { sequelize } = require('./models');
+const passportConfig = require('./api/passport');
 
 //const pageRouter = require('./routes/page');
 //const authRouter = require('./routes/auth');
@@ -22,7 +22,7 @@ const passportConfig = require('./passport');
 
 const app = express();
 passportConfig();
-sequelize.sync({ force: true })      // force: true >> 테이블 다 지우고 다시 생성(데이터 다 날아감, 실무X) / alter: true >> 데이터 유지 가능
+sequelize.sync({ force: false })      // force: true >> 테이블 다 지우고 다시 생성(데이터 다 날아감, 실무X) / alter: true >> 데이터 유지 가능
   .then(() => {
     console.log('✅ DB connect!');
   })
@@ -35,7 +35,6 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-
 
 // Router
 app.use(morgan('dev'));                                            // 'combined' : publish
@@ -56,9 +55,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Page Router
-app.use('/', pageRouter);
-//app.use('/auth', authRouter);
-
+// app.use('/', pageRouter);
 app.use('/users', userRouter);
 app.use('/posts', postRouter);
 
