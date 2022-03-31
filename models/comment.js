@@ -7,10 +7,14 @@ module.exports = class Hashtag extends Sequelize.Model {
         type: Sequelize.STRING(40),
         allowNull: false,
         unique: true
+      },
+      author: {
+        type: Sequelize.STRING(15),
+        allowNull: false,
       }
     }, {
       sequelize,
-      timestamps: true,         
+      timestamps: true,
       underscored: false,
       modelName: 'Comment',
       tableName: 'comments',
