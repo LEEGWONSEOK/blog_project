@@ -11,6 +11,7 @@ const login = require('./controllers/login');
 const logout = require('./controllers/logout');
 const getUser = require('./controllers/getUser');
 const patchUser = require('./controllers/patchUser');
+const { upload, postProfileImg } = require('./controllers/postProfileImg');
 
 const router = express.Router();
 
@@ -21,5 +22,7 @@ router.post('/login', isNotLoggedIn, login);      // 로그인(로컬)
 router.get('/logout', isLoggedIn, logout);        // 로그아웃(Get)
 router.get('/:userId', isLoggedIn, getUser);      // 회원정보 조회
 router.patch('/:userId', isLoggedIn, patchUser);  // 회원정보 변경
+router.post('/profileImg', isLoggedIn, upload.single('img'), postProfileImg);  // 프로필이미지 업로드
+
 
 module.exports = router;
