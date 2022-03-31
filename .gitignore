@@ -3,6 +3,3 @@
 .env
 .env.test
 node_modules/
-passport/
-routes/
-controllers/
