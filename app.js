@@ -27,7 +27,7 @@ sequelize.sync({ force: false })      // force: true >> 테이블 다 지우고 
   });
 
 // App Setting
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT);
 let corsOptions = {
   origin: 'localhost:3000',
   credential: true
