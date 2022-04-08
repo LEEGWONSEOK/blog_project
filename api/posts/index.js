@@ -13,18 +13,18 @@ const patchPost = require('./controllers/patchPost');
 const deletePost = require('./controllers/deletePost');
 
 // Comment Controller
-const postComment = require('./controllers/postComment');
+//const postComment = require('./controllers/postComment');
 //const getComment = require('./controllers/getComment');
-const putComment = require('./controllers/putComment');
-const deleteComment = require('./controllers/deleteComment');
+//const putComment = require('./controllers/putComment');
+//const deleteComment = require('./controllers/deleteComment');
 
 const router = express.Router();
 
 // Comment Router
-router.post('/:postId/comments', isLoggedIn, postComment);                // 댓글 생성
+//router.post('/:postId/comments', isLoggedIn, postComment);                // 댓글 생성
 //router.get('/:postId/comments', isLoggedIn, getComment);                  // 전체 댓글 조회
-router.put('/:postId/comments/:commentId', isLoggedIn, putComment);       // 댓글 수정
-router.delete('/:postId/comments/:commentId', isLoggedIn, deleteComment); // 댓글 삭제
+//router.put('/:postId/comments/:commentId', isLoggedIn, putComment);       // 댓글 수정
+//router.delete('/:postId/comments/:commentId', isLoggedIn, deleteComment); // 댓글 삭제
 
 // Post Router
 router.post('/', isLoggedIn, postPost);                     // 포스트 생성
