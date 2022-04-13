@@ -6,12 +6,13 @@ module.exports = class Hashtag extends Sequelize.Model {
       comment: {
         type: Sequelize.STRING(40),
         allowNull: false,
-        unique: true
+        comment: "댓글",
       },
       author: {
-        type: Sequelize.STRING(15),
+        type: Sequelize.STRING(40),
         allowNull: false,
-      }
+        comment: "댓글 작성자",
+      },
     }, {
       sequelize,
       timestamps: true,
